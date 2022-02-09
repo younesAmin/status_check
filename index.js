@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require("fs");
-const ( connected ) = require('process');
+const { connected } = require('process');
 
 async function checkFilExist(path) {
   return fs.promises.access(path, fs.constants.F_OK)
