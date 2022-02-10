@@ -35,8 +35,14 @@ async function checkFileStartsWithHeader(filePath) {
 
 async function checkNamingStandards() {
   const payload = JSON.stringify(github.context.payload.pull_request, undefined, 2)
-
   console.log(`The event payload: ${payload}`);
+  if (payload == payload.toLowerCase()){
+    core.info(`Branch ${payload} is in lowercase`);
+    return true;
+  } else {
+    core.setFailed(`Branch ${payload} has some upercase chars`);
+    return false;
+  }
 }
 
 (async () => {
