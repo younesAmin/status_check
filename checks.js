@@ -34,7 +34,7 @@ async function checkFileStartsWithHeader(filePath) {
 }
 
 async function checkNamingStandards() {
-  const payload = JSON.stringify(github.context.payload.pull_request.head.ref, undefined, 2)
+  const payload = JSON.stringify(github.context.payload.pull_request, undefined, 2)
 
   console.log(`The event payload: ${payload}`);
 }
