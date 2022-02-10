@@ -33,6 +33,10 @@ async function checkFileStartsWithHeader(filePath) {
   });
 }
 
+async function checkNamingStandards() {
+  const payload = JSON.stringify(github.context.payload, undefined, 2)
+  console.log(`The event payload: ${payload}`);
+}
 
 (async () => {
     try {
@@ -41,6 +45,7 @@ async function checkFileStartsWithHeader(filePath) {
       checkFilExist("CONTRIBUTING.md")
       checkFilExist("SECURITY.md")
       checkFileStartsWithHeader("README.md");
+      checkNamingStandards();
     } catch (error){
       core.setFailed(error.message);
     }
