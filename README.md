@@ -2,4 +2,4 @@
 # status_check
 this repo is just a test for status check !
 
-check 5
+check 6
